@@ -3,4 +3,3 @@ Data peserta SanberCode Bootcamp Laravel Web Dev
 2. Email : r4zan.maulana@gmail.com
 3. Akun Github : 0jann-exe
 4. Akun telegram : z4nf1
-5. hobby : main gem
