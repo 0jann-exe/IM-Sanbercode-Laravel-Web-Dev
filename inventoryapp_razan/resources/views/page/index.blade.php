@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tugas Sanber Code</title>
-</head>
-<body>
+@extends('layout.master')
+@section('title')
+    Home
+@endsection
+@section('content')
     <header>
         <h1>SanberBook</h1>
         <h2>Social Media Developer Santai Berkualitas</h2>
@@ -24,5 +21,4 @@
         <li>Mengunjungi Website ini</li>
         <li>Mendaftar di <a href="{{ url('/form') }}">Form Sign Up</a> </li>
     </ol>
-</body>
-</html>
+@endsection

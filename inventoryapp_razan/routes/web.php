@@ -7,3 +7,7 @@
     Route::get('/', [DashboardController::class, 'theFirst']);
     Route::get('/form', [FormController::class, 'regis']);
     Route::post('/welcome', [FormController::class, 'selamatDatang']);
+
+    Route::get('/master', function() {
+        return view('layout.master');
+    });
