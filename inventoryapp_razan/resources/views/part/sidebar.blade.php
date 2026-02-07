@@ -37,6 +37,18 @@
                 <span class="hide-menu">FORM</span>
               </a>
             </li>
+            <li class="nav-small-cap">
+              <i class="ti ti-dots nav-small-cap-icon fs-6"></i>
+              <span class="hide-menu">Database</span>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="/category" aria-expanded="false">
+                <span>
+                  <iconify-icon icon="solar:layers-minimalistic-bold-duotone" class="fs-6"></iconify-icon>
+                </span>
+                <span class="hide-menu">Category</span>
+              </a>
+            </li>
           </ul>
         </nav>
         <!-- End Sidebar navigation -->
