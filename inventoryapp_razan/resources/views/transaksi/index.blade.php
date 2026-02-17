@@ -1,11 +1,11 @@
 @extends('layout.master')
 @section('title')
-    List Category
+    List Transaksi
 @endsection
 @section('content')
-    <a href="/category/create">
+    <a href="/transaksi/create">
         <button class="mb-2">
-            Create
+            Transaksi
         </button>
     </a>
     @if(session()->has('success'))
@@ -19,27 +19,29 @@
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Name</th>
-                <th scope="col">Action</th>
+                <th scope="col">Product</th>
+                <th scope="col">Type(in/out)</th>
+                <th scope="col">Amount</th>
             </tr>
         </thead>
         <tbody>
-            @forelse ($category as $item)
+            @forelse ($transaksi as $item)
                 <tr>
                     <th scope="row">{{$loop->iteration}}</th>
-                    <td>{{$item->name}}</td>
+                    <td>{{$item->user->name}}</td>
+                    <td>{{$item->product->name}}</td>
                     <td>
-                        <form action="/category/{{$item->id}}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <a href="/category/{{$item->id}}" class="btn btn-info btn-sm ">Info Detail</a>
-                            <a href="/category/{{$item->id}}/edit" class="btn btn-warning btn-sm ">Edit Data</a>
-                            <input type="submit" value="Delete" class="btn btn-danger btn-sm">
-                        </form>
+                        @if($item->type == 'in')
+                        <span class="badge bg-primary">in</span>
+                        @else
+                        <span class="badge bg-danger">out</span>
+                        @endif
                     </td>
+                    <td>{{$item->amount}}</td>
                 </tr>
             @empty
                 <tr>
-                    <td>Category Masih Kosong</td>
+                    <td>Belum ada Transaksi</td>
                 </tr>
             @endforelse
         </tbody>
@@ -119,5 +121,32 @@
         -moz-transition: box-shadow 0.2s ease-in;
         transition: box-shadow 0.2s ease-in;
     }
+
+    .shadow__btn {
+        padding: 3px 20px;
+        width: 100%;
+        border: none;
+        font-size: 14px;
+        color: #fff;
+        border-radius: 7px;
+        letter-spacing: 4px;
+        margin-top: 5px;
+        font-weight: 700;
+        text-transform: uppercase;
+        transition: 0.5s;
+        transition-property: box-shadow;
+        }
+
+        .shadow__btn {
+        background: rgb(0,140,255);
+        box-shadow: 0 0 25px rgb(0,140,255);
+        }
+
+        .shadow__btn:hover {
+        box-shadow: 0 0 5px rgb(0,140,255),
+                    0 0 25px rgb(0,140,255),
+                    0 0 50px rgb(0,140,255),
+                    0 0 100px rgb(0,140,255);
+        }
 </style>
 @endpush

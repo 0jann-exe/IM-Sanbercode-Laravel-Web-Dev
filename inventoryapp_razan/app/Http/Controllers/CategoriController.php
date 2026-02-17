@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use App\Models\Categories;
 
 class CategoriController extends Controller
 {
@@ -17,7 +18,7 @@ class CategoriController extends Controller
     {
         //validasi
         $data->validate([
-            'name' => 'required|min:5',
+            'name' => 'required|min:2',
             'description' => 'required',
         ],
         [
@@ -46,7 +47,7 @@ class CategoriController extends Controller
     }
 
     public function show($id) {
-        $category = DB::table('categories')->find($id);
+        $category = Categories::find($id);
 
         return view('categoryDB.dataD', ['category' => $category]);
     }
@@ -59,7 +60,7 @@ class CategoriController extends Controller
 
     public function update($id, Request $data) {
         $data->validate([
-            'name' => 'required|min:5',
+            'name' => 'required|min:4',
             'description' => 'required',
         ],
         [
@@ -85,6 +86,7 @@ class CategoriController extends Controller
     }
 
     public function del($id) {
+        DB::table('products')->where('category_id', $id)->delete();
         DB::table('categories')->where('id', $id)->delete();
 
         return redirect('/category')->with('success', 'Category berhasil di Delete!');

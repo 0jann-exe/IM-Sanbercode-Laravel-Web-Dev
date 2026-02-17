@@ -19,6 +19,6 @@
     <h3>Cara Bergabung ke SanberBook</h3>
     <ol>
         <li>Mengunjungi Website ini</li>
-        <li>Mendaftar di <a href="{{ url('/form') }}">Form Sign Up</a> </li>
+        <li>Mendaftar di <a href="{{ url('/register') }}">Form Sign Up</a> </li>
     </ol>
 @endsection
